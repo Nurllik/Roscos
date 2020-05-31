@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Roscos/static/css/main.4cf19c34.chunk.css",
-    "main.js": "/Roscos/static/js/main.fb55c523.chunk.js",
-    "main.js.map": "/Roscos/static/js/main.fb55c523.chunk.js.map",
+    "main.js": "/Roscos/static/js/main.2044cf20.chunk.js",
+    "main.js.map": "/Roscos/static/js/main.2044cf20.chunk.js.map",
     "runtime-main.js": "/Roscos/static/js/runtime-main.3ef5b7d4.js",
     "runtime-main.js.map": "/Roscos/static/js/runtime-main.3ef5b7d4.js.map",
     "static/css/2.63b65d4e.chunk.css": "/Roscos/static/css/2.63b65d4e.chunk.css",
     "static/js/2.f3bbdc29.chunk.js": "/Roscos/static/js/2.f3bbdc29.chunk.js",
     "static/js/2.f3bbdc29.chunk.js.map": "/Roscos/static/js/2.f3bbdc29.chunk.js.map",
     "index.html": "/Roscos/index.html",
-    "precache-manifest.db3617f23bb1e8e436da60ebd74da855.js": "/Roscos/precache-manifest.db3617f23bb1e8e436da60ebd74da855.js",
+    "precache-manifest.f332e6ecb79e2354ae22a41c98e8e214.js": "/Roscos/precache-manifest.f332e6ecb79e2354ae22a41c98e8e214.js",
     "service-worker.js": "/Roscos/service-worker.js",
     "static/css/2.63b65d4e.chunk.css.map": "/Roscos/static/css/2.63b65d4e.chunk.css.map",
     "static/css/main.4cf19c34.chunk.css.map": "/Roscos/static/css/main.4cf19c34.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.63b65d4e.chunk.css",
     "static/js/2.f3bbdc29.chunk.js",
     "static/css/main.4cf19c34.chunk.css",
-    "static/js/main.fb55c523.chunk.js"
+    "static/js/main.2044cf20.chunk.js"
   ]
 }
