@@ -81,6 +81,18 @@ export default class CustomShapeBarChart extends PureComponent {
                 {
                     name: 'Япония', female: 4,
                 },
+                {
+                    name: 'Великобр', female: 8,
+                },
+                {
+                    name: 'Великобритания', female: 8,
+                },
+                {
+                    name: 'Вdsf', female: 8,
+                },
+                {
+                    name: 'qwww', female: 8,
+                },
             ],
             data2: [
                 {
@@ -146,39 +158,39 @@ export default class CustomShapeBarChart extends PureComponent {
 
     render() {
 
-        
+
 
         return (
             <div>
-               
-                <BarChart
-                    width={500}
-                    height={300}
-                    data={this.state.data}
-                    margin={{
-                        top: 20, right: 30, left: 20, bottom: 5,
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Bar dataKey="female" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-                        {
-                            this.state.data1.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-                            ))
-                        }
-                    </Bar>
-                </BarChart>
+                <div className='CSBC'> 
+                    <BarChart
+                        width={1100}
+                        height={500}
+                        data={this.state.data}
+                        margin={{
+                            top: 20, right: 30, left: 80, bottom: 50,
+                        }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Bar dataKey="female" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+                            {
+                                this.state.data1.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                                ))
+                            }
+                        </Bar>
+                    </BarChart>
 
-                <div classname='radioGroupOnCustomBar'>
-                    <Radio.Group onChange={this.changeData}>
-                        <Radio  value={this.state.data1}>2020</Radio>
-                        <Radio  value={this.state.data2}>2019</Radio>
-                        <Radio  value={this.state.data3}>2018</Radio>
-                    </Radio.Group>
+                    <div classname='radioGroupOnCustomBar'>
+                        <Radio.Group onChange={this.changeData}>
+                            <Radio value={this.state.data1}>2020</Radio>
+                            <Radio value={this.state.data2}>2019</Radio>
+                            <Radio value={this.state.data3}>2018</Radio>
+                        </Radio.Group>
+                    </div>
                 </div>
-            
             </div>
         )
     }
