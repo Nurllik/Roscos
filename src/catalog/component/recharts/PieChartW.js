@@ -7,7 +7,13 @@ const data = [
   { name: 'Плецеск', value: 300 },
   { name: 'ГКЦ (Куру)', value: 200 },
 ];
-
+const Pads = {
+  1: 'Байконур',
+  2: 'Восточный',
+  3: 'Плесецк',
+  4: 'ГКЦ (Куру)',
+  }
+  
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const {
@@ -49,7 +55,7 @@ const renderActiveShape = (props) => {
       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
       <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`Запуски ${value}`}</text>
       <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
+        {`( ${(percent * 100).toFixed(2)}%)`}
       </text>
     </g>
   );
@@ -70,13 +76,33 @@ export default class Example extends PureComponent {
   };
 
   render() {
+    let countPads = 4
+    let count 
+    let dataPads = []
+    while (countPads > 0) {
+      let value = 0
+      count = 0
+
+      while (count < this.props.launches.length) {
+        if (Pads[countPads] == Pads[this.props.launches[count].launch_pad.id]) {
+          value++
+        }
+        count++
+      }
+
+      dataPads.push({
+        name: Pads[countPads],
+        value: value,
+      })
+      countPads--
+    }
     return (
       <div className='PCW'>
         <PieChart width={600} height={600}>
           <Pie
             activeIndex={this.state.activeIndex}
             activeShape={renderActiveShape}
-            data={data}
+            data={dataPads}
             cx={300}
             cy={300}
             innerRadius={60}

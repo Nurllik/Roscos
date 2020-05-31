@@ -39,6 +39,7 @@ export default class StackedBarChart extends PureComponent {
 
 
   render() {
+
     let countOfYear = 1
     let yearOfBegin = 2017
     let dataArray = []

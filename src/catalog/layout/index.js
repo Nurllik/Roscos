@@ -61,7 +61,7 @@ class LayoutMain extends Component {
 
                             <StackedBarChart launches={launches} />
                             <CustomShapeBarChar />
-                            <PieChartW />
+                            <PieChartW  launches={launches}/>
 
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
