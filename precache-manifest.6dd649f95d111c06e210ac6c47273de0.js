@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7318363c9b20db6f693d271ec1baa9c6",
+    "revision": "a512761994f12f8448f5c5cc5b538569",
     "url": "/Roscos/index.html"
   },
   {
