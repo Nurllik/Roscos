@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
 import moment from 'moment'
 const data = [
@@ -74,23 +74,22 @@ export default class StackedBarChart extends PureComponent {
     }
 
     return (
-      <div className='SBC'>
-        <BarChart
-          width={500}
-          height={300}
-          data={dataArray}
-          margin={{
-            top: 20, right: 30, left: 20, bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="успешно" stackId="a" fill="green" />
-          <Bar dataKey="Не успешно" stackId="a" fill="red" />
-        </BarChart>
+      <div className='title1'>
+          <ResponsiveContainer  width={500} height={400}>
+            <BarChart
+                width={"100%"}
+                height={300}
+                data={dataArray}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="успешно" stackId="a" fill="green" />
+              <Bar dataKey="Не успешно" stackId="a" fill="red" />
+            </BarChart>
+          </ResponsiveContainer>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { PieChart, Pie, Sector } from 'recharts';
+import {PieChart, Pie, Sector, ResponsiveContainer, Cell} from 'recharts';
 
 const data = [
   { name: 'Байконур', value: 400 },
@@ -12,7 +12,13 @@ const Pads = {
   2: 'Восточный',
   3: 'Плесецк',
   4: 'ГКЦ (Куру)',
-  }
+}
+const colorPads = {
+  1: '#0fa2a9',
+  2: '#949217',
+  3: '#c1a7b0',
+  4: '#7d3865',
+}
   
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -84,7 +90,7 @@ export default class Example extends PureComponent {
       count = 0
 
       while (count < this.props.launches.length) {
-        if (Pads[countPads] == Pads[this.props.launches[count].launch_pad.id]) {
+        if (Pads[countPads] === Pads[this.props.launches[count].launch_pad.id]) {
           value++
         }
         count++
@@ -93,25 +99,32 @@ export default class Example extends PureComponent {
       dataPads.push({
         name: Pads[countPads],
         value: value,
+        color: colorPads[countPads]
       })
+      console.log(dataPads);
       countPads--
     }
+
     return (
-      <div className='PCW'>
-        <PieChart width={600} height={600}>
-          <Pie
-            activeIndex={this.state.activeIndex}
-            activeShape={renderActiveShape}
-            data={dataPads}
-            cx={300}
-            cy={300}
-            innerRadius={60}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-            onMouseEnter={this.onPieEnter}
-          />
-        </PieChart>
+      <div className='title3'>
+        <ResponsiveContainer  width={500} height={400}>
+          <PieChart width="100%" height={300}>
+            <Pie
+                activeIndex={this.state.activeIndex}
+                activeShape={renderActiveShape}
+                data={dataPads}
+                innerRadius={40}
+                outerRadius={60}
+                fill="#8884d8"
+                dataKey="value"
+                onMouseEnter={this.onPieEnter}
+            >
+              {dataPads.map((entry, index) =>
+                  <Cell key={index} fill={entry.color}/>
+              )}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
       </div>
     );
   }

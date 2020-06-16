@@ -1,7 +1,7 @@
 import React, { Component, PureComponent } from 'react'
 import 'antd/dist/antd.css'
 import './index.css'
-import { Layout, Menu, Breadcrumb, Button } from 'antd'
+import {Layout, Menu, Breadcrumb, Button, Tabs} from 'antd'
 import StackedBarChart from '../component/recharts/StackedBarChart'
 import CustomShapeBarChar from '../component/recharts/CustomShapeBarChart'
 import PieChartW from '../component/recharts/PieChartW'
@@ -9,6 +9,9 @@ import {
     LoadingOutlined,
 } from '@ant-design/icons';
 import moment from 'moment'
+import './index.css';
+
+const { TabPane } = Tabs;
 
 
 
@@ -44,7 +47,6 @@ class LayoutMain extends Component {
 
             return (
                 <div>
-
                     <Layout >
                         <Header>
                             <div className="logo" />
@@ -57,12 +59,24 @@ class LayoutMain extends Component {
                         <div>
 
                         </div>
-                        <Content>
-
-                            <StackedBarChart launches={launches} />
-                            <CustomShapeBarChar />
-                            <PieChartW  launches={launches}/>
-
+                        <Content className="content" >
+                            <Tabs type="card">
+                                <TabPane tab="Прошедшие запуски" key="1">
+                                    <div className="wrapper__tab">
+                                        <StackedBarChart launches={launches} />
+                                    </div>
+                                </TabPane>
+                                <TabPane tab="Запуски по странам" key="2">
+                                    <div className="wrapper__tab">
+                                        <CustomShapeBarChar />
+                                    </div>
+                                </TabPane>
+                                <TabPane tab="Запуски по космодромам" key="3">
+                                    <div className="wrapper__tab">
+                                        <PieChartW  launches={launches}/>
+                                    </div>
+                                </TabPane>
+                            </Tabs>
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
                     </Layout>
