@@ -5,3 +5,52 @@
 .title2 {
     width: 700px;
 }
+
+.colors {
+    display: flex;
+    justify-content: space-between;
+}
+
+.colors__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.colors__color {
+    height: 20px;
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.colors__text {
+    text-align: center;
+}
+
+.ant-card-bordered {
+    border: 1px solid grey;
+}
+
+.ant-card-body {
+    height: 100%;
+    padding: 20px;
+}
+.description::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    background-color: #F4F5FA;
+}
+.description::-webkit-scrollbar {
+    width: 9px;
+    background-color: #F4F5FA;
+}
+
+.description::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #AFAFAF;
+}
+
+ul > li {
+    font-size: 16px;
+}

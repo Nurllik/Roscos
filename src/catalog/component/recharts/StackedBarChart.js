@@ -3,40 +3,13 @@ import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
 import moment from 'moment'
-const data = [
-  {
-    name: '2014', Неудачный: 4, Успешный: 153,
-  },
-  {
-    name: '2015', Неудачный: 3, Успешный: 168,
-  },
-  {
-    name: '2016', Неудачный: 2, Успешный: 175,
-  },
-  {
-    name: '2017', Неудачный: 2, Успешный: 163,
-  },
-  {
-    name: '2018', Неудачный: 1, Успешный: 178,
-  },
-  {
-    name: '2019', Неудачный: 2, Успешный: 189,
-  },
-  {
-    name: '2020', Неудачный: 3, Успешный: 180,
-  },
-];
+import {getPeriodLaunches} from "../../requestService";
+
 export default class StackedBarChart extends PureComponent {
   constructor(props) {
     super(props)
-    this.state = {
-      // dataArray: []
-    }
   }
-  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/90v76x08/';
-
-
-
+  // static jsfiddleUrl = 'https://jsfiddle.net/alidingling/90v76x08/';
 
   render() {
 

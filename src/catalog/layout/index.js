@@ -8,17 +8,14 @@ import PieChartW from '../component/recharts/PieChartW'
 import {
     LoadingOutlined,
 } from '@ant-design/icons';
-import moment from 'moment'
 import './index.css';
+import {getLaunches} from "../requestService";
+import LaunchVehicle from "../component/recharts/launchVehicle";
+import CardContainer from "../component/CardContainer";
 
 const { TabPane } = Tabs;
 
-
-
-// import Example from '../component/MixBarChart'
-
 const { Header, Content, Footer } = Layout;
-const urlForLaunches = 'http://roscosmos.xyz/api/launches/?format=json'
 
 class LayoutMain extends Component {
     constructor(props) {
@@ -28,25 +25,17 @@ class LayoutMain extends Component {
         }
     }
 
-    fetchlaunches(url) {
-        fetch(url)
-            .then(res => res.json())
-            .then(res => this.setState({ launches: res }))
-    }
     componentDidMount() {
-        this.fetchlaunches(urlForLaunches)
+        getLaunches().then(response => this.setState({ launches: response.data}));
     }
 
-
-
-    static jsfiddleUrl = 'https://jsfiddle.net/alidingling/90v76x08/';
+    // static jsfiddleUrl = 'https://jsfiddle.net/alidingling/90v76x08/';
 
     render() {
         const { launches } = this.state
-        if (launches) {
-
-            return (
-                <div>
+        return (
+            <>
+                {launches ? (<div>
                     <Layout >
                         <Header>
                             <div className="logo" />
@@ -61,14 +50,14 @@ class LayoutMain extends Component {
                         </div>
                         <Content className="content" >
                             <Tabs type="card">
-                                <TabPane tab="Прошедшие запуски" key="1">
+                                <TabPane tab="Производители ракетоносителей" key="1">
                                     <div className="wrapper__tab">
-                                        <StackedBarChart launches={launches} />
+                                        <CustomShapeBarChar launches={launches} />
                                     </div>
                                 </TabPane>
-                                <TabPane tab="Запуски по странам" key="2">
+                                <TabPane tab="Прошедшие запуски" key="2">
                                     <div className="wrapper__tab">
-                                        <CustomShapeBarChar />
+                                        <StackedBarChart launches={launches} />
                                     </div>
                                 </TabPane>
                                 <TabPane tab="Запуски по космодромам" key="3">
@@ -76,15 +65,23 @@ class LayoutMain extends Component {
                                         <PieChartW  launches={launches}/>
                                     </div>
                                 </TabPane>
+                                <TabPane tab="Ракетоносители" key="4">
+                                    <div className="wrapper__tab">
+                                        <LaunchVehicle launches={launches} />
+                                    </div>
+                                </TabPane>
                             </Tabs>
+                        </Content>
+                        <Content className="content" >
+                            <CardContainer />
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
                     </Layout>
-                </div>
-            )
-        } else { return (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
-        <LoadingOutlined style={{ fontSize: '100px' }} /></div>) }
-
+                </div>) :
+                    (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+                    <LoadingOutlined style={{ fontSize: '100px' }} /></div>)}
+            </>
+        )
     }
 }
 

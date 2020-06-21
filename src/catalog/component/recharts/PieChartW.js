@@ -113,8 +113,8 @@ export default class Example extends PureComponent {
                 activeIndex={this.state.activeIndex}
                 activeShape={renderActiveShape}
                 data={dataPads}
-                innerRadius={40}
-                outerRadius={60}
+                innerRadius={60}
+                outerRadius={120}
                 fill="#8884d8"
                 dataKey="value"
                 onMouseEnter={this.onPieEnter}
@@ -125,6 +125,15 @@ export default class Example extends PureComponent {
             </Pie>
           </PieChart>
         </ResponsiveContainer>
+        <div className="colors">
+          {Object.values(colorPads).map((item, index) => {
+            console.log(item);
+            return (<div className="colors__item">
+              <div className="colors__color" style={{ backgroundColor: `${item}`}} />
+              <div className="colors__text">{Object.values(Pads)[index]}</div>
+            </div>)
+          })}
+        </div>
       </div>
     );
   }
