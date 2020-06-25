@@ -54,6 +54,7 @@ export default class CardContainer extends PureComponent {
 
         return (
             <div >
+                <h1 style={{ color: "white", textAlign: "center", fontSize: "34px"}}>Ракетоносители</h1>
                 <Carousel >
                     {launchVehicles.map(item => {
                         return (
