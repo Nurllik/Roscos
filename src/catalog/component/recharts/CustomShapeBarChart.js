@@ -66,9 +66,10 @@ export default class CustomShapeBarChart extends PureComponent {
 
         return (
             <div className='title2'>
+                <h1 style={{color: "white", textAlign: "center"}}>Производители ракетоносителей запускаемых роскосмосом</h1>
                 {manufacturers[0].value !== 0 ? (
                     <>
-                        <PieChart width={700} height={400} onMouseEnter={this.onPieEnter}>
+                        <PieChart width={600} height={400} onMouseEnter={this.onPieEnter}>
                             <Pie
                                 data={manufacturers}
                                 cx={300}

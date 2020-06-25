@@ -19,7 +19,7 @@ const colorPads = {
   3: '#c1a7b0',
   4: '#7d3865',
 }
-  
+
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const {
@@ -83,7 +83,7 @@ export default class Example extends PureComponent {
 
   render() {
     let countPads = 4
-    let count 
+    let count
     let dataPads = []
     while (countPads > 0) {
       let value = 0
@@ -107,6 +107,7 @@ export default class Example extends PureComponent {
 
     return (
       <div className='title3'>
+        <h1 style={{color: "white", textAlign: "center"}}>Запуски совершенные с космодромов</h1>
         <ResponsiveContainer  width={500} height={400}>
           <PieChart width="100%" height={300}>
             <Pie

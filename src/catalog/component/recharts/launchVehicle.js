@@ -112,6 +112,7 @@ export default class LaunchVehicle extends PureComponent {
 
         return (
             <div >
+                <h1 style={{color: "white", textAlign: "center"}}>Количество определенных ракетоносителей запушенных Роскосмосом</h1>
                 {launchVehicle[0].female !== 0 && (
                     <BarChart
                         style={{ margin: "0 auto"}}

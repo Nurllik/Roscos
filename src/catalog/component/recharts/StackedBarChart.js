@@ -48,6 +48,7 @@ export default class StackedBarChart extends PureComponent {
 
     return (
       <div className='title1'>
+        <h1 style={{color: "white", textAlign: "center"}}>График отображает количество успешных и неуспешных запусков ракет</h1>
           <ResponsiveContainer  width={500} height={400}>
             <BarChart
                 width={"100%"}

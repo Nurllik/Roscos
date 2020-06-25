@@ -1,7 +1,9 @@
 .content {
     background-color: white;
     margin: 0 10%;
+    background-color: rgba(24, 28, 31, 0.8);
     margin-top: 150px;
+    color: white;
 }
 
 .wrapper__tab {
